@@ -33,7 +33,7 @@ Add one test class per trap room, next to `ExampleTests.cs`.
 ## Helpers
 
 ```csharp
-await EnterAsync("/rooms/welcome-mat");   // open a page in the dungeon
+await EnterAsync("/rooms/welcome-matt");   // open a page in the dungeon
 var flag = await TakeTreasureAsync();     // wait for the flag, print it, return it
 ```
 

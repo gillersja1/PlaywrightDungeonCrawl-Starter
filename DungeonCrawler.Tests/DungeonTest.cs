@@ -20,7 +20,7 @@ public abstract class DungeonTest : PageTest
         (Environment.GetEnvironmentVariable("DUNGEON_URL")
             ?? TestContext.Parameters.Get("DungeonUrl", "http://localhost:5299")).TrimEnd('/');
 
-    /// <summary>Opens a page in the dungeon, e.g. <c>EnterAsync("/rooms/welcome-mat")</c>.</summary>
+    /// <summary>Opens a page in the dungeon, e.g. <c>EnterAsync("/rooms/welcome-matt")</c>.</summary>
     protected async Task EnterAsync(string path)
     {
         try
