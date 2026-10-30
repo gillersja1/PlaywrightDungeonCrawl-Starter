@@ -7,6 +7,12 @@
       to http://localhost:5299.
     -->
     <Parameter name="DungeonUrl" value="https://playwright-dungeon-crawl.onrender.com" />
+    <!--
+      Victory pause: after TakeTreasureAsync finds the treasure, the browser
+      stays open this many seconds so you can see the room give it up.
+      0 turns it off.
+    -->
+    <Parameter name="VictoryPauseSeconds" value="3" />
   </TestRunParameters>
 
   <Playwright>
