@@ -18,7 +18,7 @@ public abstract class DungeonTest : PageTest
     /// </summary>
     protected static string DungeonUrl =>
         (Environment.GetEnvironmentVariable("DUNGEON_URL")
-            ?? TestContext.Parameters.Get("DungeonUrl", "http://localhost:5299")).TrimEnd('/');
+            ?? TestContext.Parameters.Get("DungeonUrl", "https://playwright-dungeon-crawl.onrender.com")).TrimEnd('/');
 
     /// <summary>Opens a page in the dungeon, e.g. <c>EnterAsync("/rooms/welcome-matt")</c>.</summary>
     protected async Task EnterAsync(string path)
