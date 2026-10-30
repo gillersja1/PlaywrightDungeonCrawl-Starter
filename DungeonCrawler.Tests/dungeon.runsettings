@@ -2,11 +2,11 @@
 <RunSettings>
   <TestRunParameters>
     <!--
-      Where your tests send the browser. This points at a copy of the dungeon
-      running on your own machine. If the dungeon lives somewhere else, change
-      this one line.
+      Where your tests send the browser. This points at the live dungeon. If
+      you run a copy of the dungeon on your own machine, change this one line
+      to http://localhost:5299.
     -->
-    <Parameter name="DungeonUrl" value="http://localhost:5299" />
+    <Parameter name="DungeonUrl" value="https://playwright-dungeon-crawl.onrender.com" />
   </TestRunParameters>
 
   <Playwright>
