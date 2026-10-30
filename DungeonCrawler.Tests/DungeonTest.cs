@@ -36,7 +36,8 @@ public abstract class DungeonTest : PageTest
 
     /// <summary>
     /// Waits for a cleared room's treasure flag, writes it to the test output
-    /// (Test Explorer shows it), and returns it.
+    /// (Test Explorer shows it), and returns it. Then holds the browser open
+    /// for VictoryPauseSeconds (dungeon.runsettings) so you can see it worked.
     /// </summary>
     protected async Task<string> TakeTreasureAsync()
     {
@@ -44,6 +45,14 @@ public abstract class DungeonTest : PageTest
         await Expect(flag).ToContainTextAsync("PDC{");
         var text = (await flag.TextContentAsync())!.Trim();
         TestContext.Out.WriteLine($"Treasure flag: {text}");
+
+        // A CI server has no one watching, so it skips the pause.
+        var pause = float.TryParse(TestContext.Parameters.Get("VictoryPauseSeconds", "0"), out var seconds) ? seconds : 0;
+        if (pause > 0 && Environment.GetEnvironmentVariable("CI") is null)
+        {
+            await flag.ScrollIntoViewIfNeededAsync();
+            await Page.WaitForTimeoutAsync(pause * 1000);
+        }
         return text;
     }
 }
